@@ -16,7 +16,7 @@ public class CyclicIterator<T> implements Iterator<T> {
 
     @Override
     public boolean hasNext() {
-        return data.size() > 0 ? true : false;
+        return data.size() > 0;
     }
 
     @Override
