@@ -25,7 +25,7 @@ public class SimpleArraySet<T> implements SimpleSet<T> {
             if (Objects.equals(set.get(i), value)) {
                 result = true;
                 break;
-            };
+            }
         }
         return result;
     }
