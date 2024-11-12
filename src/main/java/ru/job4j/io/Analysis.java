@@ -66,7 +66,9 @@ public class Analysis {
                 end = valueList.get(i).getKey().toString();
                 i++;
             }
-            results.add(String.format("%s%s%s", start, ";", end));
+            if (!start.equals("")) {
+                results.add(String.format("%s%s%s", start, ";", end));
+            }
         }
         return results;
     }
