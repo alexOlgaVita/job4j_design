@@ -26,7 +26,7 @@ public class Analysis {
                     end = "";
                 }
             }
-            if (!"".equals(start) && "".equals(end)) {
+            if (!"".equals(start)) {
                 String s = start + ";";
                 writer.println(s);
             }
