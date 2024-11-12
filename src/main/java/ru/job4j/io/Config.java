@@ -19,7 +19,6 @@ public class Config {
     }
 
     public void load() {
-        StringJoiner output = new StringJoiner(System.lineSeparator());
         try (BufferedReader reader = new BufferedReader(new FileReader(this.path))) {
             List<String> list = reader.lines().toList();
             if (!checkCorrect(list)) {
@@ -60,7 +59,6 @@ public class Config {
     }
 
     public static void main(String[] args) {
-        // System.out.println(new Config("data/app.properties"));
         System.out.println(new Config("data/pair_without_comment.properties"));
     }
 }
