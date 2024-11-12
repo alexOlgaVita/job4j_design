@@ -20,11 +20,15 @@ public class Analysis {
                     end = "".equals(start) ? "" : elements[1];
                 }
                 if (!"".equals(start) && !"".equals(end)) {
-                    String s = start + ";" + end + System.lineSeparator();
+                    String s = start + ";" + end;
                     writer.println(s);
                     start = "";
                     end = "";
                 }
+            }
+            if (!"".equals(start) && "".equals(end)) {
+                String s = start + ";";
+                writer.println(s);
             }
         } catch (IOException e) {
             e.printStackTrace();
