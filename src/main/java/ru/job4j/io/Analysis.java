@@ -22,7 +22,6 @@ public class Analysis {
                 if (!"".equals(start) && !"".equals(end)) {
                     String s = start + ";" + end + System.lineSeparator();
                     writer.println(s);
-                    System.out.println(s);
                     start = "";
                     end = "";
                 }

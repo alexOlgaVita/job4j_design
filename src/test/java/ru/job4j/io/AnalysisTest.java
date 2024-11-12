@@ -14,6 +14,7 @@ class AnalysisTest {
         File source = tempDir.resolve("source.txt").toFile();
         File target = tempDir.resolve("target.txt").toFile();
         try (PrintWriter output = new PrintWriter(source)) {
+            output.println("");
         }
         Analysis analysis = new Analysis();
         analysis.unavailable(source.getAbsolutePath(), target.getAbsolutePath());
