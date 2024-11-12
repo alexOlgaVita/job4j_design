@@ -15,7 +15,6 @@ public class LogFilter {
     }
 
     public List<String> filter() {
-        // return Collections.emptyList();
         try (BufferedReader input = new BufferedReader(new FileReader(file))) {
             return input.lines()
                     .map(e -> e.split(" "))
