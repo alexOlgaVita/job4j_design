@@ -26,7 +26,7 @@ public class Config {
             }
             this.values = list.stream()
                     .map(e -> e.trim())
-                    .filter(e -> !e.equals(""))
+                    .filter(e -> !"".equals(e))
                     .filter(e -> !e.startsWith("#"))
                     .map(e -> e.split("=", 2))
                     .collect(Collectors.toMap(e -> e[0], e -> e[1]));
