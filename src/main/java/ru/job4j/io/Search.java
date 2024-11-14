@@ -24,7 +24,10 @@ public class Search {
         if (args.length == 0) {
             throw new IllegalArgumentException("Root folder is null. Usage ROOT_FOLDER.");
         }
-        if (args.length == 1) {
+        if (args.length != 2) {
+            throw new IllegalArgumentException("Количество параметров меньше 2х.");
+        }
+        if (args[1] == null) {
             throw new IllegalArgumentException("File extension is null. Please enter a value.");
         }
         Path path = Paths.get(args[0]);
