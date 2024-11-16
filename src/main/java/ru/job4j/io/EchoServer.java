@@ -17,17 +17,21 @@ public class EchoServer {
                 try (OutputStream output = socket.getOutputStream();
                      BufferedReader input = new BufferedReader(
                              new InputStreamReader(socket.getInputStream()))) {
-                    output.write("HTTP/1.1 200 OK\r\n\r\n".getBytes());
                     List<String> response = new ArrayList<>();
                     for (String string = input.readLine(); string != null && !string.isEmpty(); string = input.readLine()) {
                         System.out.println(string);
                         response.add(string);
                     }
-                    output.flush();
-                    if (response.stream().filter(e -> e.contains("?msg=Bye")).count() == 1) {
-                        output.write("HTTP/1.1 200 OK BYE!\r\n\r\n".getBytes());
+                    output.write("HTTP/1.1 200 OK\r\n\r\n".getBytes());
+                    if (response.stream().filter(e -> e.contains("?msg=Hello ")).count() == 1) {
+                        output.write("Hello".getBytes());
+                    } else if (response.stream().filter(e -> e.contains("?msg=Exit")).count() == 1) {
+                        output.write("Завершить работу сервера".getBytes());
                         server.close();
+                    } else if (response.stream().filter(e -> e.contains("?msg=Any")).count() == 1) {
+                        output.write("What".getBytes());
                     }
+                    output.flush();
                 }
             }
         }
