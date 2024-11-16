@@ -10,7 +10,7 @@ public class UsageLog4j {
         String s = "tralivali";
         int i = 33;
         float f = 13.4F;
-        long l= 54L;
+        long l = 54L;
         boolean b = true;
         byte bt = 34;
         short sh = 320;
