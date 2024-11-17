@@ -29,4 +29,16 @@ public class Pet {
                 + "age='" + age + '\''
                 + '}';
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getNameAnimal() {
+        return nameAnimal;
+    }
+
+    public int getAge() {
+        return age;
+    }
 }

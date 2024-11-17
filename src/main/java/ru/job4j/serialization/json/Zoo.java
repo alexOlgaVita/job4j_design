@@ -35,4 +35,20 @@ public class Zoo {
                 + ", animalTypes=" + Arrays.toString(animalTypes)
                 + '}';
     }
+
+    public boolean getMunicipal() {
+        return municipal;
+    }
+
+    public int getPeriod() {
+        return period;
+    }
+
+    public Pet getPet() {
+        return pet;
+    }
+
+    public String[] getAnimalTypes() {
+        return animalTypes;
+    }
 }
