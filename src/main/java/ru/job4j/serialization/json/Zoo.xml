@@ -1,0 +1,9 @@
+<?xml version="1.1" encoding="UTF-8" ?>
+<zoo municipal="true" period="10">
+    <pet nameAnimal="Cat" name="Margo" age="10"/>
+    <animalTypes>
+        <animalType>Cat</animalType>
+        <animalType>Dog</animalType>
+        <animalType>Turtle</animalType>
+    </animalTypes>
+</zoo>
