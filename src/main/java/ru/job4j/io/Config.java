@@ -29,8 +29,7 @@ public class Config {
                     .filter(e -> !"".equals(e))
                     .filter(e -> !e.startsWith("#"))
                     .map(e -> e.split("=", 2))
-                    .collect(Collectors.toMap(e -> e[0], e -> e[1]));
-            System.out.println(values);
+                    .collect(Collectors.toMap(e -> e[0].trim(), e -> e[1].trim()));
         } catch (IOException e) {
             e.printStackTrace();
         }
