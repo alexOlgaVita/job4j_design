@@ -71,8 +71,8 @@ public class TableEditor implements AutoCloseable {
         buffer.add(header);
         try (var statement = connection.createStatement()) {
             var selection = statement.executeQuery(String.format(
-                    "select exists (select * from information_schema.tables where table_name = '%s' and table_schema = 'public')::int as \"column\";"
-                    , tableName));
+                    "select exists (select * from information_schema.tables where table_name = '%s' and table_schema = 'public')::int as \"column\";",
+                    tableName));
             boolean tableExist = false;
             while (selection.next()) {
                 tableExist = selection.getInt("column") != 0;
@@ -136,8 +136,7 @@ public class TableEditor implements AutoCloseable {
             System.out.println(te.getTableScheme(tableName));
             te.dropTable(tableName);
             System.out.println(te.getTableScheme(tableName));
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
