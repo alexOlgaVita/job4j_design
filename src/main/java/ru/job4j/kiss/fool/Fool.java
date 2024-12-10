@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 import static java.lang.System.in;
 
-
 public class Fool {
 
     public static int count = 100;
