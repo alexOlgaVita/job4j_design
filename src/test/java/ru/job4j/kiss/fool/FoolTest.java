@@ -60,6 +60,8 @@ class FoolTest {
         sbPlayer1.append("23");
         String dataPlayer1 = sbPlayer1.toString();
         System.setIn(new ByteArrayInputStream(dataPlayer2.getBytes()));
+        Fool fool = new Fool();
+        fool.count = 25;
         Fool.main(new String[0]);
         assertEquals(dataPlayer1, outputStreamCaptor.toString().trim());
     }
@@ -101,6 +103,8 @@ class FoolTest {
         sbPlayer1.append("23");
         String dataPlayer1 = sbPlayer1.toString();
         System.setIn(new ByteArrayInputStream(dataPlayer2.getBytes()));
+        Fool fool = new Fool();
+        fool.count = 25;
         Fool.main(new String[0]);
         assertEquals(dataPlayer1, outputStreamCaptor.toString().trim());
     }
