@@ -7,7 +7,7 @@ import ru.job4j.ood.spr.model.Store;
 import java.util.Calendar;
 import java.util.function.Predicate;
 
-    public class ReportEngine implements Report {
+public class ReportEngine implements Report {
 
     private final Store store;
     private final DateTimeParser<Calendar> dateTimeParser;
