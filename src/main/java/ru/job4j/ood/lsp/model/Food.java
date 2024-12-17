@@ -12,7 +12,6 @@ public class Food {
     private float discount;
     private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("dd-MMMM-EEEE-yyyy");
 
-
     public Food() {
     }
 
@@ -53,7 +52,6 @@ public class Food {
                 + ", discount=" + discount
                 + '}';
     }
-
 
     @Override
     public int hashCode() {
@@ -113,7 +111,6 @@ public class Food {
     public void setExpiryDate(LocalDate expiryDate) {
         this.expiryDate = expiryDate;
     }
-
 
     public double getPrice() {
         return price;
