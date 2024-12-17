@@ -24,7 +24,6 @@ public class ControlQuality {
             moveToStore(food, stores[1]);
         } else if (usagePercent < 100) {
             /* Shop */
-//            moveToStore(food, shop, SHOP_DISCOUNT);
             moveToStore(food, stores[1], SHOP_DISCOUNT);
         } else {
             /* Trash */
@@ -33,8 +32,6 @@ public class ControlQuality {
     }
 
     private int getDaysDiff(LocalDate endDate, LocalDate startDay) {
-//        LocalDate aDate = LocalDate.of(2020, 9, 11);
-//        LocalDate sixDaysBehind = aDate.minusDays(6);
         Period period = Period.between(endDate, startDay);
         return Math.abs(period.getDays());
     }
