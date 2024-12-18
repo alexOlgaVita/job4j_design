@@ -4,8 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class AbstractStore implements Store {
+
     private final List<Food> foods = new ArrayList<>();
     private int ids = 1;
+    protected static final int PERCENT_TO_SHOP_WITHOUT_DISCOUNT_MIN = 25;
+    protected static final int PERCENT_TO_SHOP_WITHOUT_DISCOUNT_MAX = 75;
+    protected static final int PERCENT_TO_TRASH_MIN = 100;
 
     private int indexOf(int id) {
         int result = -1;

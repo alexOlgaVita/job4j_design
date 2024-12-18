@@ -8,7 +8,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static ru.job4j.ood.lsp.service.ControlQuality.SHOP_DISCOUNT;
+import static ru.job4j.ood.lsp.model.Shop.DISCOUNT;
 
 class ControlQualityTest {
     @Test
@@ -82,7 +82,7 @@ class ControlQualityTest {
         controlQuality.execute(food1, stores);
         assertThat(warehouse.findAll().size()).isEqualTo(0);
         assertThat(shop.findAll().get(0)).isEqualTo(food1);
-        assertThat(shop.findAll().get(0).getDiscount()).isEqualTo(SHOP_DISCOUNT);
+        assertThat(shop.findAll().get(0).getDiscount()).isEqualTo(DISCOUNT);
         assertThat(shop.findAll().size()).isEqualTo(1);
         assertThat(trash.findAll().size()).isEqualTo(0);
     }
@@ -101,7 +101,7 @@ class ControlQualityTest {
         controlQuality.execute(food1, stores);
         assertThat(warehouse.findAll().size()).isEqualTo(0);
         assertThat(shop.findAll().get(0)).isEqualTo(food1);
-        assertThat(shop.findAll().get(0).getDiscount()).isEqualTo(SHOP_DISCOUNT);
+        assertThat(shop.findAll().get(0).getDiscount()).isEqualTo(DISCOUNT);
         assertThat(shop.findAll().size()).isEqualTo(1);
         assertThat(trash.findAll().size()).isEqualTo(0);
     }

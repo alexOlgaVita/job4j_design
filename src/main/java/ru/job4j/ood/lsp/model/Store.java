@@ -13,4 +13,6 @@ public interface Store extends AutoCloseable {
     List<Food> findByName(String key);
 
     Food findById(int id);
+
+    boolean matchToPlace(Food food);
 }
