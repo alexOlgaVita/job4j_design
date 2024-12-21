@@ -10,7 +10,6 @@ public interface Store extends AutoCloseable {
 
     List<Car> findAll();
 
-
     Car findById(int id);
 
     public List<Car> findByVin(String vin);

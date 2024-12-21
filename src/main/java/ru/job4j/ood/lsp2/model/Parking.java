@@ -8,7 +8,7 @@ import static ru.job4j.ood.lsp2.utils.CarUtil.*;
 
 public class Parking {
 
-    private static int PASS_CAR_COUNT_PER_TRACK = 3;
+    private static final int PASS_CAR_COUNT_PER_TRACK = 3;
     private int trackPlaceCount;
     private int passCarPlaceCount;
 
