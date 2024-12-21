@@ -2,6 +2,7 @@ package ru.job4j.ood.lsp2.service;
 
 import ru.job4j.ood.lsp2.model.*;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -30,7 +31,11 @@ public class ControlParking {
         Car car2 = new Car(2, "X7LLSRB1HAH548713");
         Car car3 = new Car(4, "X7LLSRB1HAH548714");
         Car car4 = new Car(2, "X7LLSRB1HAH548715");
-        List<Car> cars = Arrays.asList(car1, car2, car3, car4);
+        List<Car> cars = new ArrayList<>();
+        cars.add(car1);
+        cars.add(car2);
+        cars.add(car3);
+        cars.add(car4);
 
         System.out.println("Машины:");
         for (Car car : cars) {

@@ -4,8 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import static ru.job4j.ood.lsp2.utils.CarUtil.PASS_CAR_SIZE_MAX;
-import static ru.job4j.ood.lsp2.utils.CarUtil.isPassCar;
+import static ru.job4j.ood.lsp2.utils.CarUtil.*;
 
 public class Parking {
 
@@ -32,10 +31,10 @@ public class Parking {
         this.passCarPlaceCount = passCarPlaceCount;
         totalPlaceCarList = new ArrayList<>();
         for (int i = 0; i < trackPlaceCount; i++) {
-            totalPlaceCarList.add(new Car(PASS_CAR_SIZE_MAX + 1));
+            totalPlaceCarList.add(new Car(TRACK_SIZE_MIN));
         }
         for (int i = 0; i < passCarPlaceCount; i++) {
-            totalPlaceCarList.add(new Car(PASS_CAR_SIZE_MAX));
+            totalPlaceCarList.add(new Car(PASS_CAR_SIZE));
         }
         Collections.shuffle(totalPlaceCarList);
     }
@@ -94,10 +93,14 @@ public class Parking {
     /**
      * Метод освобождает парковочное место после отбытия машины
      *
-     * @param carNew машина, место который надо пометить, ка совбодное
+     * @param carOld машина, место который надо пометить, ка совбодное
      */
-    public void freeUpParkPlace(Car carNew) {
-        Car carEmpty = new Car(isPassCar(carNew) ? 1 : 2);
-        totalPlaceCarList.replaceAll(car -> carNew.getVin().equals(car.getVin()) ? carEmpty : car);
+    public void freeUpParkPlace(Car carOld) {
+        long count = totalPlaceCarList.stream()
+                .filter(place -> carOld.getVin().equals(place.getVin()))
+                .count();
+        /* после отъезда грузовой машины тип парковочных мест должен остаться прежним */
+        Car carEmpty = new Car(isPassCar(carOld) ? 1 : (count == 3 ? PASS_CAR_SIZE : TRACK_SIZE_MIN));
+        totalPlaceCarList.replaceAll(car -> carOld.getVin().equals(car.getVin()) ? carEmpty : car);
     }
 }
