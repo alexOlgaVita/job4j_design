@@ -8,4 +8,10 @@ public class Trash extends AbstractStore {
     public boolean matchToPlace(Food food) {
         return getUsageDaysPercent(food) >= PERCENT_TO_TRASH_MIN;
     }
+
+    @Override
+    public Food add(Food food) {
+        food.setDiscount(0);
+        return super.add(food);
+    }
 }

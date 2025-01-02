@@ -154,4 +154,58 @@ class ControlQualityTest {
         }
         assertThat(warehouse.findAll().get(0)).isEqualTo(food4);
     }
+
+    @Test
+    void whenSomeFoodsToDiffStoresResortAfterDateChanges() {
+        Store warehouse = new Warehouse();
+        Store shop = new Shop();
+        Store trash = new Trash();
+        Store[] stores = new Store[]{warehouse, shop, trash};
+        Food food1 = new Food("Молоко",
+                LocalDate.now().minusDays(10),
+                LocalDate.now().minusDays(1),
+                98.2F);
+        Food food2 = new Food("Хлеб",
+                LocalDate.now().minusDays(10),
+                LocalDate.now().plusDays(1),
+                52.43F);
+        Food food3 = new Food("Сыр",
+                LocalDate.now().minusDays(10),
+                LocalDate.now(),
+                109.17F);
+        Food food4 = new Food("Картошка",
+                LocalDate.now(),
+                LocalDate.now().plusDays(12),
+                49.87F);
+        List<Food> foods = Arrays.asList(food1, food2, food3, food4);
+        ControlQuality controlQuality = new ControlQuality();
+        for (Food f : foods) {
+            controlQuality.execute(f, stores);
+        }
+        assertThat(warehouse.findAll().get(0)).isEqualTo(food4);
+        assertThat(warehouse.findAll().get(0).getDiscount()).isEqualTo(0);
+        assertThat(shop.findAll().get(0)).isEqualTo(food2);
+        assertThat(shop.findAll().get(0).getDiscount()).isEqualTo(DISCOUNT);
+        assertThat(trash.findAll().get(0)).isEqualTo(food1);
+        assertThat(trash.findAll().get(0).getDiscount()).isEqualTo(0);
+        assertThat(trash.findAll().get(1)).isEqualTo(food3);
+        assertThat(trash.findAll().get(1).getDiscount()).isEqualTo(0);
+        food1.setCreateDate(LocalDate.now().plusDays(1));
+        food1.setExpiryDate(LocalDate.now().plusDays(10));
+        food4.setCreateDate(LocalDate.now().minusDays(3));
+        food4.setExpiryDate(LocalDate.now());
+        food3.setCreateDate(LocalDate.now().minusDays(5));
+        food3.setExpiryDate(LocalDate.now().plusDays(1));
+        food2.setCreateDate(LocalDate.now().minusDays(4));
+        food2.setExpiryDate(LocalDate.now().plusDays(0));
+        controlQuality.resort(stores);
+        assertThat(warehouse.findAll().get(0)).isEqualTo(food1);
+        assertThat(warehouse.findAll().get(0).getDiscount()).isEqualTo(0);
+        assertThat(shop.findAll().get(0)).isEqualTo(food3);
+        assertThat(shop.findAll().get(0).getDiscount()).isEqualTo(DISCOUNT);
+        assertThat(trash.findAll().get(0)).isEqualTo(food4);
+        assertThat(trash.findAll().get(0).getDiscount()).isEqualTo(0);
+        assertThat(trash.findAll().get(1)).isEqualTo(food2);
+        assertThat(trash.findAll().get(1).getDiscount()).isEqualTo(0);
+    }
 }

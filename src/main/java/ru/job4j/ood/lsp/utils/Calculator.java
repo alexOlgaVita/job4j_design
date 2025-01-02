@@ -3,12 +3,11 @@ package ru.job4j.ood.lsp.utils;
 import ru.job4j.ood.lsp.model.Food;
 
 import java.time.LocalDate;
-import java.time.Period;
+import java.time.temporal.ChronoUnit;
 
 public class Calculator {
     private static int getDaysDiff(LocalDate endDate, LocalDate startDay) {
-        Period period = Period.between(endDate, startDay);
-        return Math.abs(period.getDays());
+        return (int) ChronoUnit.DAYS.between(endDate, startDay);
     }
 
     private static int getUsageDaysPercent(int totalCount, int usageCount) {

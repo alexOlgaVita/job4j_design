@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface Store extends AutoCloseable {
 
-    Food add(Food item);
+    Food add(Food food);
 
     void delete(int id);
 
