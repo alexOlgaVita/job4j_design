@@ -19,12 +19,11 @@ public class Brackets {
     }
 
     private char findOpeningBracket(char closingBracket) {
-        char pair = ' ';
-        switch (closingBracket) {
-            case (')') -> pair = '(';
-            case ('}') -> pair = '{';
-            case (']') -> pair = '[';
-        }
-        return pair;
+        return switch (closingBracket) {
+            case (')') -> '(';
+            case ('}') -> '{';
+            case (']') -> '[';
+            default -> ' ';
+        };
     }
 }
