@@ -21,28 +21,29 @@ public class BinarySearchTree<T extends Comparable<T>> {
 
     private boolean put(Node node, T key) {
         boolean result = false;
+        boolean error = false;
         Node child = null;
-        while (!result) {
+        while (!result && !error) {
             if (key.compareTo(node.key) < 0) {
                 child = node.left;
-            }
-            else if (key.compareTo(node.key) > 0) {
+            } else if (key.compareTo(node.key) > 0) {
                 child = node.right;
+            } else {
+                error = true;
             }
             if (Objects.isNull(child)) {
                 child = new Node(key);
-
+                result = true;
                 if (key.compareTo(node.key) < 0) {
                     node.left = child;
-                }
-                else if (key.compareTo(node.key) > 0) {
+                } else if (key.compareTo(node.key) > 0) {
                     node.right = child;
+                } else {
+                    result = false;
+                    error = true;
                 }
-                result = true;
-
             } else {
                 node = child;
-                //child = child.left;
             }
         }
         return result;
@@ -55,7 +56,8 @@ public class BinarySearchTree<T extends Comparable<T>> {
     private Node find(Node node, T key) {
         Node foundNode = null;
         boolean result = false;
-        while (!result) {
+        boolean error = false;
+        while (!result && !error) {
             if (Objects.isNull(node)) {
                 result = true;
             } else {
@@ -65,9 +67,10 @@ public class BinarySearchTree<T extends Comparable<T>> {
                 } else {
                     if (key.compareTo(node.key) < 0) {
                         node = node.left;
-                    }
-                    else if (key.compareTo(node.key) > 0) {
+                    } else if (key.compareTo(node.key) > 0) {
                         node = node.right;
+                    } else {
+                        error = true;
                     }
                 }
             }

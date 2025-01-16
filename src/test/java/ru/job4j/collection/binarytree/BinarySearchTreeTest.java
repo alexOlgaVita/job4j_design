@@ -2,7 +2,7 @@ package ru.job4j.collection.binarytree;
 
 import org.junit.jupiter.api.Test;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class BinarySearchTreeTest {
     @Test
@@ -18,6 +18,16 @@ class BinarySearchTreeTest {
         BinarySearchTree<String> tree = new BinarySearchTree<>();
         assertThat(tree.put("first")).isTrue();
         assertThat(tree.put("second")).isTrue();
+        assertThat(tree.inSymmetricalOrder()).hasSize(2)
+                .containsExactly("first", "second");
+    }
+
+    @Test
+    void whenAddThreeWithRepeat1ToEmptyTreeThenListContainsTwoElement2() {
+        BinarySearchTree<String> tree = new BinarySearchTree<>();
+        assertThat(tree.put("first")).isTrue();
+        assertThat(tree.put("second")).isTrue();
+        assertThat(tree.put("first")).isFalse();
         assertThat(tree.inSymmetricalOrder()).hasSize(2)
                 .containsExactly("first", "second");
     }
@@ -62,7 +72,7 @@ class BinarySearchTreeTest {
     @Test
     void whenAddMinimumIsNotEndThenOk() {
         BinarySearchTree<Integer> tree = new BinarySearchTree<>();
-        for (int element : new int[]{4, 2, 6, 3, 5, 7 }) {
+        for (int element : new int[]{4, 2, 6, 3, 5, 7}) {
             tree.put(element);
         }
         assertThat(tree.minimum()).isEqualTo(2);
