@@ -43,7 +43,7 @@ public class Quick {
     }
 
     public static void main(String[] args) {
-        int[] array = {0, 5, -3, 7, 3, -2};
+        int[] array = {0, 5, -2, 7, 3, -2};
         quickSort(array);
         System.out.println(Arrays.toString(array));
     }
