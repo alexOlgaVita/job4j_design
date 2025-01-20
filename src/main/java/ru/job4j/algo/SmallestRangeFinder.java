@@ -46,7 +46,7 @@ public class SmallestRangeFinder {
     }
 
     public static void main(String[] args) {
-        int[] nums = {1, 2, 5, 7, 9};
+        int[] nums = {1, 3, 5, 7, 9};
         int k = 3;
         int[] result = findSmallestRange(nums, k);
         if (result != null) {
