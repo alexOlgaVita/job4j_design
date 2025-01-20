@@ -36,7 +36,6 @@ public class BankMaxLoadTime {
         return new int[]{maxLoadStartTime, maxLoadEndTime};
     }
 
-
     static class Event implements Comparable<Event> {
         int time;
         EventType type;
