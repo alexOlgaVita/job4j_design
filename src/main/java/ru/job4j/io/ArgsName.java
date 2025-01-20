@@ -50,6 +50,6 @@ public class ArgsName {
         System.out.println(jvm.get("Xmx"));
 
         ArgsName zip = ArgsName.of(new String[]{"-out=project.zip", "-encoding=UTF-8"});
-        System.out.println(zip.get("out"));
+        System.out.println(zip.get("out1"));
     }
 }
